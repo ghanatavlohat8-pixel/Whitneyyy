@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Whitneyyy ❤️</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+  background: linear-gradient(135deg, #ffb6d5, #ffe8f1);
+  color: #ff3978;
+}
+
+/* Floating hearts */
+.heart {
+  position: fixed;
+  bottom: -30px;
+  font-size: 22px;
+  animation: rise 7s linear infinite;
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+@keyframes rise {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.screen {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.card {
+  width: 100%;
+  max-width: 550px;
+  padding: 40px 25px;
+  border-radius: 30px;
+  background: rgba(255,255,255,0.75);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 20px 60px rgba(255, 60, 120, 0.25);
+}
+
+h1 {
+  font-size: clamp(38px, 10vw, 65px);
+  margin-bottom: 15px;
+}
+
+.question {
+  font-size: clamp(24px, 6vw, 38px);
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 35px;
+}
+
+.buttons {
+  position: relative;
+  height: 80px;
+  width: 100%;
+}
+
+button {
+  border: none;
+  border-radius: 50px;
+  padding: 15px 30px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+#yesBtn {
+  background: #ff3978;
+  color: white;
+  margin-right: 20px;
+  box-shadow: 0 8px 20px rgba(255,57,120,0.3);
+}
+
+#yesBtn:hover {
+  transform: scale(1.08);
+}
+
+#noBtn {
+  background: white;
+  color: #ff3978;
+  position: absolute;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+/* Success */
+.hidden {
+  display: none !important;
+}
+
+.success-title {
+  font-size: clamp(32px, 8vw, 55px);
+  margin-bottom: 15px;
+}
+
+.success-text {
+  color: #555;
+  font-size: 22px;
+  margin-bottom: 25px;
+}
+
+.envelope {
+  font-size: 100px;
+  cursor: pointer;
+  display: inline-block;
+  animation: bounce 1.8s infinite;
+}
+
+@keyframes bounce {
+  0%,100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+.tap {
+  color: #777;
+  margin-top: 10px;
+}
+
+/* Letter */
+#letter {
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 190, 215, 0.96);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  z-index: 100;
+}
+
+.paper {
+  width: 100%;
+  max-width: 550px;
+  max-height: 85vh;
+  overflow-y: auto;
+  background: #fffdf5;
+  padding: 35px 28px;
+  border-radius: 12px;
+  color: #444;
+  text-align: left;
+  line-height: 1.7;
+  font-size: 18px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+  animation: open 0.6s ease;
+}
+
+.paper h2 {
+  text-align: center;
+  color: #ff3978;
+  margin-bottom: 20px;
+}
+
+.close {
+  display: block;
+  margin: 25px auto 0;
+  background: #ff3978;
+  color: white;
+}
+
+@keyframes open {
+  from {
+    opacity: 0;
+    transform: scale(0.5) rotate(-5deg);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Floating hearts -->
+<div class="heart" style="left:10%; animation-delay:0s;">❤️</div>
+<div class="heart" style="left:25%; animation-delay:2s;">💕</div>
+<div class="heart" style="left:45%; animation-delay:4s;">💗</div>
+<div class="heart" style="left:65%; animation-delay:1s;">💖</div>
+<div class="heart" style="left:85%; animation-delay:3s;">❤️</div>
+
+
+<!-- MAIN QUESTION -->
+<section class="screen" id="questionScreen">
+
+  <div class="card">
+
+    <h1>Whitneyyy ❤️</h1>
+
+    <div class="question">
+      Will you be mine? 💕
+    </div>
+
+    <div class="buttons">
+
+      <button id="yesBtn">
+        Yes ❤️
+      </button>
+
+      <button id="noBtn">
+        No 😭
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- AFTER YES -->
+<section class="screen hidden" id="successScreen">
+
+  <div class="card">
+
+    <div class="success-title">
+      Thank you! ❤️
+    </div>
+
+    <div class="success-text">
+      Our forever starts now... 💕
+    </div>
+
+    <div class="envelope" id="envelope">
+      ✉️
+    </div>
+
+    <div class="tap">
+      Tap the letter 💌
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- LOVE LETTER -->
+<div id="letter" class="hidden">
+
+  <div class="paper">
+
+    <h2>To My Whitneyyy ❤️</h2>
+
+    <p>
+      Dear Whitneyyy,<br><br>
+
+      I honestly don't know when you became so special to me,
+      but somewhere along the way, you became one of the most
+      beautiful parts of my thoughts. Your smile can make my day
+      better, and even the smallest moments with you feel special.
+      I don't promise that everything will always be perfect,
+      but I promise that I will always try to make you smile,
+      listen to you, support you, and appreciate having you in
+      my life. I hope we can make countless memories together,
+      laugh at stupid things, stand by each other, and enjoy every
+      little moment. So Whitneyyy, here's to us, to our smiles,
+      our memories, and hopefully a beautiful journey together.
+      ❤️<br><br>
+
+      Forever yours,<br>
+      <b>notypureditorofx ❤️</b>
+    </p>
+
+    <button class="close" onclick="closeLetter()">
+      Close ❤️
+    </button>
+
+  </div>
+
+</div>
+
+
+<script>
+
+/* YES */
+const yesBtn = document.getElementById("yesBtn");
+
+yesBtn.addEventListener("click", function() {
+
+  document.getElementById("questionScreen")
+    .classList.add("hidden");
+
+  document.getElementById("successScreen")
+    .classList.remove("hidden");
+
+});
+
+
+/* NO BUTTON RUNS AWAY */
+const noBtn = document.getElementById("noBtn");
+
+function runAway() {
+
+  const buttonWidth = noBtn.offsetWidth;
+  const buttonHeight = noBtn.offsetHeight;
+
+  const maxX = window.innerWidth - buttonWidth - 15;
+  const maxY = window.innerHeight - buttonHeight - 15;
+
+  const randomX = Math.max(
+    10,
+    Math.random() * maxX
+  );
+
+  const randomY = Math.max(
+    10,
+    Math.random() * maxY
+  );
+
+  noBtn.style.position = "fixed";
+  noBtn.style.left = randomX + "px";
+  noBtn.style.top = randomY + "px";
+}
+
+/* PC */
+noBtn.addEventListener("mouseenter", runAway);
+
+/* Mobile */
+noBtn.addEventListener("touchstart", function(e) {
+  e.preventDefault();
+  runAway();
+});
+
+/* If she somehow clicks it 😂 */
+noBtn.addEventListener("click", function(e) {
+  e.preventDefault();
+  runAway();
+});
+
+
+/* OPEN LETTER */
+document.getElementById("envelope")
+.addEventListener("click", function() {
+
+  document.getElementById("letter")
+    .classList.remove("hidden");
+
+});
+
+
+/* CLOSE LETTER */
+function closeLetter() {
+
+  document.getElementById("letter")
+    .classList.add("hidden");
+
+}
+
+</script>
+
+</body>
+</html>
